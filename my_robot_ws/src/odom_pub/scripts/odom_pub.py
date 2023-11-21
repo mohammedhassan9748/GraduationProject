@@ -99,7 +99,7 @@ def main():
     odom_broadcaster = tf.TransformBroadcaster()
 
     # Use a Timer to call the update_odometry function at a fixed rate
-    rospy.Timer(rospy.Duration(0.1), update_odometry)
+    rospy.Timer(rospy.Duration(0.05), update_odometry)
 
     rospy.spin()
 

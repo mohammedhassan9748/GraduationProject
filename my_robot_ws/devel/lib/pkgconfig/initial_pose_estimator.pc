@@ -1,0 +1,8 @@
+prefix=/home/mo/GraduationProject/my_robot_ws/devel
+
+Name: initial_pose_estimator
+Description: Description of initial_pose_estimator
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

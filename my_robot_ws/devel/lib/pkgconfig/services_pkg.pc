@@ -1,0 +1,8 @@
+prefix=/home/mo/GraduationProject/my_robot_ws/devel
+
+Name: services_pkg
+Description: Description of services_pkg
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

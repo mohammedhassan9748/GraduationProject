@@ -52,3 +52,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/odom_pub" TYPE FILE FILES "/home/mo/GraduationProject/my_robot_ws/src/odom_pub/package.xml")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/odom_pub" TYPE PROGRAM FILES "/home/mo/GraduationProject/my_robot_ws/build/odom_pub/catkin_generated/installspace/odom_pub.py")
+endif()
+

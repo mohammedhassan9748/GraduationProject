@@ -1,0 +1,8 @@
+prefix=/home/mo/GraduationProject/my_robot_ws/install
+
+Name: imu_processor
+Description: Description of imu_processor
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

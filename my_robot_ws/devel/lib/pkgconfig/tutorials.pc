@@ -1,0 +1,8 @@
+prefix=/home/mo/GraduationProject/my_robot_ws/devel
+
+Name: tutorials
+Description: Description of tutorials
+Version: 0.0.0
+Cflags: -I/home/mo/GraduationProject/my_robot_ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: 

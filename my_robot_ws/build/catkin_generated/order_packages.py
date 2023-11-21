@@ -2,4 +2,4 @@
 source_root_dir = '/home/mo/GraduationProject/my_robot_ws/src'
 whitelisted_packages = ''.split(';') if '' != '' else []
 blacklisted_packages = ''.split(';') if '' != '' else []
-underlay_workspaces = '/opt/ros/noetic'.split(';') if '/opt/ros/noetic' != '' else []
+underlay_workspaces = '/home/mo/GraduationProject/my_robot_ws/devel;/opt/ros/noetic'.split(';') if '/home/mo/GraduationProject/my_robot_ws/devel;/opt/ros/noetic' != '' else []
