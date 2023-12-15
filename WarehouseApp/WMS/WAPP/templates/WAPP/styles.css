@@ -1,0 +1,11 @@
+.login-option {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-option:hover {
+    background-color: #f0f0f0; /* Change this color to the highlight color you want */
+}

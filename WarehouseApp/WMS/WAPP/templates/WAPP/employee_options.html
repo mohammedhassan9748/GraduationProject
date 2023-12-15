@@ -1,0 +1,94 @@
+<!-- WAPP/employee_options.html -->
+{% extends 'WAPP/base.html' %}
+
+
+{% block content %}
+    <div id="employee-dashboard">
+        <h1>Welcome, Employee!</h1>
+        <form method="post" action="{% url 'Employee_Options' %}">
+            {% csrf_token %}
+            <div class="dashboard-option">
+                <button type="submit" class ="mybtn1" name="option" value="inventory_data_overview">
+                    <h2>Data Overview</h2>
+                </button>
+            </div>
+            <div class="dashboard-option">
+                <button type="submit" class ="mybtn2" name="option" value="manual_control">
+                    <h2>Manual Control</h2>
+                </button>
+            </div>
+            <div class="dashboard-option">
+                <button type="submit" class ="mybtn3" name="option" value="amr_control">
+                    <h2>AMR Control</h2>
+                </button>
+            </div>
+        </form>
+    </div>
+    <!-- Add your styles here -->
+    
+    <style>
+        /* Add these styles to your existing styles.css file */
+        body {
+            background-color: #f8f9fa;
+        }
+
+        #employee-dashboard {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .dashboard-option {
+            display: inline-block;
+            margin: 10px;
+            padding: 20px;
+            cursor: pointer;
+            transition: transform 0.1s, box-shadow 0.2s;
+        }
+
+        .dashboard-option:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 0 rgba(0, 123, 255, 0.5);
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        .mybtn1{
+            display: inline-block;
+            margin: 10px;
+            padding: 20px;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.1s, box-shadow 0.2s;
+            height: 120px;
+            width: 200px;
+        }
+
+        .mybtn2{
+            display: inline-block;
+            margin: 10px;
+            padding: 20px;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.1s, box-shadow 0.2s;
+            height: 120px;
+            width: 200px;
+        }
+
+        .mybtn3{
+            display: inline-block;
+            margin: 10px;
+            padding: 20px;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.1s, box-shadow 0.2s;
+            height: 120px;
+            width: 200px;
+        }
+
+    </style>
+{% endblock %}

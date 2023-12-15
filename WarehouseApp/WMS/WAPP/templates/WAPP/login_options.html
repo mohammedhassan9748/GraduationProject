@@ -1,0 +1,77 @@
+{% extends 'WAPP\base.html' %}
+
+{% block content %}
+    <div id="login-options">
+        <h1>Warehouse Management System</h1>
+        <div class="login-option" onclick="redirectToLogin('Employee')">
+            <img src="https://cdn-icons-png.flaticon.com/512/912/912267.png" alt="Employee Icon" class="icon">
+            <h2>Login as Employee</h2>
+        </div>
+        <div class="login-option" onclick="redirectToLogin('Admin')">
+            <img src="https://cdn-icons-png.flaticon.com/512/1869/1869679.png" alt="Admin Icon" class="icon">
+            <h2>Login as Admin</h2>
+        </div>
+    </div>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+            margin-top: 20px;
+        }
+
+        #login-options {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .login-option {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            width: 300px;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .login-option:hover {
+            transform: scale(1.05);
+            background-color: #f8f9fa;
+        }
+
+        .icon {
+            display: block;
+            max-width: 100%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        /* Optional: Add a subtle box shadow to the login options */
+        .login-option {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <script>
+        function redirectToLogin(userType) {
+            window.location.href = userType;
+        }
+    </script>
+{% endblock %}
