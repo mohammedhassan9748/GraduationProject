@@ -1,0 +1,2 @@
+clock_pub:gazebo_pkg:mybot_description:mybot_nav:mybot_pp:odom_pub:rplidar_ros
+-DCATKIN_DEVEL_PREFIX=/home/mo/GraduationProject/my_robot_ws/devel -DCMAKE_INSTALL_PREFIX=/home/mo/GraduationProject/my_robot_ws/install -G Unix Makefiles

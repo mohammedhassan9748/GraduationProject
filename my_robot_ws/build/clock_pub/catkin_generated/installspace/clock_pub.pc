@@ -1,0 +1,8 @@
+prefix=/home/mo/GraduationProject/my_robot_ws/install
+
+Name: clock_pub
+Description: Description of clock_pub
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

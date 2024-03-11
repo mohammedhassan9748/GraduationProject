@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+
+<include file="$(find mybot_description)/launch/mybot_rviz.launch"/>
+
+<!-- <include file="$(find mybot_nav)/launch/gmapping.launch"/> -->
+
+<include file="$(find mybot_nav)/launch/mybot_teleop.launch"/>
+
+<include file="$(find mybot_pp)/launch/navigation.launch"/>
+
+</launch>

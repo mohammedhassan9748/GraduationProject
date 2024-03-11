@@ -1,0 +1,46 @@
+# Note: El costmap heya occupancy grid btt3emel ka matrix, btakhod arqam maben 0-255 betbayen, el matrix di betbayen el robot
+#       delwaaty orayeb mn el obstacle ad eh we kol ma masafet el robot 3an el obstacle tzeed we teb3ed btakhod raqam olayel
+#       wel 3aks lama el robot ykoun orayeb awy mn el obstacle byedi raqam 3ali awy. For example, the points close the obstacle 
+#       will have a cost value close to 255, and cost would decrease the farther away we go from the obstacle. The rate of 
+#       decrease and the limit of the obstacle’s influence can be changed by tweaking the inflation_radius and cost_scaling_factor.
+
+
+
+# "obstacle_range": Wel costmap btetbeni, awez yeb2a eh aqsa masafa lel sensor reading eno yol2ot en da obstacle aslun ?,
+# ya3ni ab3ad mn keda maynfa3sh yol2ot eno obstacle, lazem at least ye2arab mel obstacle el masafa di ashan yol2ot eno obstacle.
+# which means that the robot will only update its costmap with information about obstacles that are within "obstacle_range" 
+# meters of the base.
+obstacle_range: 3.0
+
+# "raytrace_range":  The range to which we will raytrace freespace given a sensor reading. Eni ahotaha be 3.0 meters ma3naha 
+#  en el robot yefadi mesaha odamo tewsal le 3.0 meters lel sensor reading ashan yetharak. 
+raytrace_range: 3.5
+
+# "footprint": Dimensions el robot bta3i assuming en el robot el center bta3o fel nos bzbt, we eli ehna amleeno fel urdf 
+#  60x30 cm - fa keda hanekteb points el corners bta3et el robot.
+footprint: [[-0.3, -0.15], [-0.3, 0.15], [0.3, 0.15], [0.3, -0.15]]
+
+# "inflation_radius": Law fi obstacle fel map, el mafrood enha btakhod value fel costmap be value kbeera (254) masln, 
+# fa el inflation raduis howa  eni hadi ay haga hawalen el obstacle da nafs el value el obstacle fel costmap, be qeemet 
+# el inflation raduis. 
+# Inflation radius sets the absolute limit till which an object exerts influence or cost. 
+# Starting from the inflation radius and beyond, the costmap will have 0 cost due to the obstacle.
+inflation_radius: 1.0
+
+# "cost_scaling_factor": This factor defines how steeply or gradually the cost will decrease as we move farther away from the 
+#  obstacle. It is inversely proportional to the cost of a cell. So a higher value means the costs decrease quickly as we move 
+#  farther from an obstacle. A lower value would lead to a more gentle slope.
+cost_scaling_factor: 3.0
+
+# The "observation_sources" parameter defines a list of sensors that are going to be passing information to the costmap separated 
+# by spaces. Each sensor is defined in the next lines. 
+map_type: costmap
+obstacle_layer:
+  observation_sources: laser_scan_sensor
+  laser_scan_sensor:
+    data_type: LaserScan
+    topic: scan
+    marking: true
+    clearing: true
+    min_obstacle_height: 0
+    max_obstacle_height: 2

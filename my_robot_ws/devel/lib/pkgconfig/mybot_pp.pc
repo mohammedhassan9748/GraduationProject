@@ -1,0 +1,8 @@
+prefix=/home/mo/GraduationProject/my_robot_ws/devel
+
+Name: mybot_pp
+Description: Description of mybot_pp
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
