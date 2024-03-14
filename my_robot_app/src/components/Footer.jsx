@@ -1,9 +1,13 @@
 import React, { Component } from "react";
+import { Container } from "react-bootstrap";
 
 class Footer extends Component{
-
     render(){
-        return <p>Footer Menu</p>
+        return(
+            <Container className="text-center">
+                <p>Done By &copy; Mo & Joe</p>
+            </Container>
+        );
     }
 }
 
