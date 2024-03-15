@@ -15,3 +15,38 @@ code {
 main{
   min-height: 80vh;
 }
+
+.about-container {
+  text-align: center;
+}
+
+.team-members {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 120px; /* Adjust the gap as needed */
+}
+
+.team-member {
+  width: 220px; /* Adjust the width as needed */
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc; /* Just an example, style as you like */
+  border-radius: 10px;
+}
+
+.team-member img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.team-member h2 {
+  font-size: 1.5em;
+  margin: 0.5em 0;
+}
+
+.team-member p {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+}

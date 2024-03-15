@@ -56,53 +56,61 @@ class Teleop extends Component {
   };
 
   handleMove = (event) => {
-    console.log("handle move");
-    const cmdVel = new window.ROSLIB.Topic({
-      ros: this.state.ros,
-      name: Config.CMD_VEL_TOPIC,
-      messageType: "geometry_msgs/Twist",
-    });
-
-    const twist = new window.ROSLIB.Message({
-      linear: {
-        x: event.y,
-        y: 0,
-        z: 0,
-      },
-      angular: {
-        x: 0,
-        y: 0,
-        z: -event.x,
-      },
-    });
-
-    cmdVel.publish(twist);
+    if (this.state.ros && this.state.connected) {
+      console.log("handle move");
+      const cmdVel = new window.ROSLIB.Topic({
+        ros: this.state.ros,
+        name: Config.CMD_VEL_TOPIC,
+        messageType: "geometry_msgs/Twist",
+      });
+  
+      const twist = new window.ROSLIB.Message({
+        linear: {
+          x: event.y,
+          y: 0,
+          z: 0,
+        },
+        angular: {
+          x: 0,
+          y: 0,
+          z: -event.x,
+        },
+      });
+  
+      cmdVel.publish(twist);
+    } else {
+      console.log("ROS connection is not established.");
+    }
   };
-
+  
   handleStop = (event) => {
-    console.log("handle stop");
-    const cmdVel = new window.ROSLIB.Topic({
-      ros: this.state.ros,
-      name: Config.CMD_VEL_TOPIC,
-      messageType: "geometry_msgs/Twist",
-    });
-
-    const twist = new window.ROSLIB.Message({
-      linear: {
-        x: 0,
-        y: 0,
-        z: 0,
-      },
-      angular: {
-        x: 0,
-        y: 0,
-        z: 0,
-      },
-    });
-
-    cmdVel.publish(twist);
+    if (this.state.ros && this.state.connected) {
+      console.log("handle stop");
+      const cmdVel = new window.ROSLIB.Topic({
+        ros: this.state.ros,
+        name: Config.CMD_VEL_TOPIC,
+        messageType: "geometry_msgs/Twist",
+      });
+  
+      const twist = new window.ROSLIB.Message({
+        linear: {
+          x: 0,
+          y: 0,
+          z: 0,
+        },
+        angular: {
+          x: 0,
+          y: 0,
+          z: 0,
+        },
+      });
+  
+      cmdVel.publish(twist);
+    } else {
+      console.log("ROS connection is not established.");
+    }
   };
-
+  
   render() {
     return (
       <div>
