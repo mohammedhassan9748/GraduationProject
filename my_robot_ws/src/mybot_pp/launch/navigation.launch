@@ -1,6 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <launch>
   <!-- Arguments -->
-  <arg name="map_file" default="$(find mybot_nav)/maps/house_map.yaml"/>
+  <arg name="map_file" default="$(find mybot_nav)/maps/the_office4.yaml"/>
 
   <!-- Map server -->
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)"/>

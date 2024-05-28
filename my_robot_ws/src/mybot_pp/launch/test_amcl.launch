@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <include file="$(find mybot_description)/launch/mybot_rviz.launch"/>
+
+  <!-- Arguments -->
+  <arg name="map_file" default="$(find mybot_nav)/maps/new_map.yaml"/>
+
+  <!-- Map server -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)"/>
+
+  <!-- AMCL -->
+  <include file="$(find mybot_pp)/launch/amcl.launch"/> 
+  
+  <include file="$(find mybot_pp)/launch/move_base.launch"/>
+  
+
+</launch>

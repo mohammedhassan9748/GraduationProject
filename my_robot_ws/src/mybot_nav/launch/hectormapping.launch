@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="hector_mapping" type="hector_mapping" name="hector_mapping">
+        <param name="base_frame" value="chassis"/>
+        <param name="odom_frame" value="odom"/>
+        <param name="map_frame" value="map"/>
+        <param name="scan_topic" value="scan"/>
+        <!-- Additional parameters and configurations here -->
+    </node>
+</launch>
+

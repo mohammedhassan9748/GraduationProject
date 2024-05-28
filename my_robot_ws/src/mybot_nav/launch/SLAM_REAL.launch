@@ -3,10 +3,8 @@
 
 <include file="$(find mybot_description)/launch/mybot_rviz.launch"/>
 
-<!-- <include file="$(find mybot_nav)/launch/gmapping.launch"/> -->
+<include file="$(find rplidar_ros)/launch/rplidar_a1.launch"/>
 
-<include file="$(find mybot_nav)/launch/mybot_teleop.launch"/>
-
-<include file="$(find mybot_pp)/launch/navigation.launch"/>
+<include file="$(find mybot_nav)/launch/hectormapping.launch"/>
 
 </launch>

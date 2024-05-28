@@ -4,9 +4,16 @@
 <arg name="model" default="$(find mybot_description)/urdf/mybot2.xacro"/>
 <param name="robot_description" textfile="$(arg model)" />
 
-<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+<!-- Joint State Publisher -->
+<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+  <!-- If you have a GUI and want to use it to control the joint states, you can set use_gui to true -->
+  <param name="use_gui" value="false"/>
+</node>
 
-<!-- Combine joint values -->
-<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+<!-- Robot State Publisher -->
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+  <param name="publish_frequency" value="5.0"/> <!-- Set the publish frequency to 20 Hz -->
+</node>
 
 </launch>
+

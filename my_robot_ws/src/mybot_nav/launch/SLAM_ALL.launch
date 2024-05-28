@@ -2,16 +2,18 @@
 
 <include file="$(find gazebo_pkg)/launch/mybot_world.launch"/>
 
-<!--<include file="$(find mybot_nav)/launch/gmapping.launch"/>-->
+<include file="$(find mybot_nav)/launch/hectormapping.launch"/>
 
-<!--<include file="$(find mybot_nav)/launch/mybot_teleop.launch"/>-->
+<include file="$(find mybot_nav)/launch/mybot_teleop.launch"/>
 
-<include file="$(find mybot_pp)/launch/navigation.launch"/>
+<!--<include file="$(find mybot_pp)/launch/navigation.launch"/>-->
 
 <!-- Set the path to your RViz configuration file -->
 <arg name="rviz_config_file" default="$(find mybot_nav)/rviz/config.rviz"/>
 
 <!-- Launch RViz -->
 <node pkg="rviz" type="rviz" name="rviz" args="-d $(arg rviz_config_file)"/>
+
+<node name="riotu_robot_pose_publisher" pkg="riotu_robot_pose_publisher" type="riotu_robot_pose_publisher"/>
 
 </launch>

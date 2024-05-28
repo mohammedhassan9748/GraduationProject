@@ -8,11 +8,10 @@ project(odom_pub)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  geometry_msgs
   nav_msgs
-  roscpp
-  std_msgs
+  rospy
   tf
-  rosgraph_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -72,7 +71,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   nav_msgs#   std_msgs
+#   geometry_msgs#   nav_msgs
 # )
 
 ################################################
@@ -107,7 +106,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES odom_pub
-#  CATKIN_DEPENDS nav_msgs roscpp std_msgs tf
+#  CATKIN_DEPENDS geometry_msgs nav_msgs rospy tf
 #  DEPENDS system_lib
 )
 
@@ -135,7 +134,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(${PROJECT_NAME}_node src/odom_pub.cpp)
+# add_executable(${PROJECT_NAME}_node src/odom_pub_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -148,9 +147,9 @@ add_executable(${PROJECT_NAME}_node src/odom_pub.cpp)
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
- target_link_libraries(${PROJECT_NAME}_node
-   ${catkin_LIBRARIES}
- )
+# target_link_libraries(${PROJECT_NAME}_node
+#   ${catkin_LIBRARIES}
+# )
 
 #############
 ## Install ##
@@ -161,10 +160,10 @@ add_executable(${PROJECT_NAME}_node src/odom_pub.cpp)
 
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
-# catkin_install_python(PROGRAMS
-#   scripts/my_python_script
-#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-# )
+ catkin_install_python(PROGRAMS
+   scripts/odom_pub.py
+   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+ )
 
 ## Mark executables for installation
 ## See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html
