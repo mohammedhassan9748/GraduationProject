@@ -54,10 +54,11 @@ class Map extends Component {
     });
 
     try {
-      ros.connect(`ws://${Config.ROSBRIDGE_SERVER_IP}:${Config.ROSBRIDGE_SERVER_PORT}`);
-    } catch (error) {
+      const protocol = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
+      ros.connect(`${protocol}${Config.ROSBRIDGE_SERVER_IP}:${Config.ROSBRIDGE_SERVER_PORT}`);
+  } catch (error) {
       console.log('Connection problem:', error);
-    }
+  }
   };
 
   createViewer = () => {

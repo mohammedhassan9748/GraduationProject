@@ -24,8 +24,9 @@ class Battery extends Component {
     }
 
     initConnection = () => {
+        const protocol = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
         const ros = new window.ROSLIB.Ros({
-            url: `ws://${Config.ROSBRIDGE_SERVER_IP}:${Config.ROSBRIDGE_SERVER_PORT}`
+            url: `${protocol}${Config.ROSBRIDGE_SERVER_IP}:${Config.ROSBRIDGE_SERVER_PORT}`
         });
 
         ros.on('connection', () => {
@@ -42,7 +43,11 @@ class Battery extends Component {
             console.error('Error connecting to websocket server:', error);
         });
 
-        ros.connect(`ws://${Config.ROSBRIDGE_SERVER_IP}:${Config.ROSBRIDGE_SERVER_PORT}`);
+        try {
+            ros.connect(`${protocol}${Config.ROSBRIDGE_SERVER_IP}:${Config.ROSBRIDGE_SERVER_PORT}`);
+        } catch (error) {
+            console.log('Connection problem:', error);
+        }
     };
 
     subscribeToBatteryVoltage = () => {

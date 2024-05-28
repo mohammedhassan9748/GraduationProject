@@ -41,12 +41,13 @@ class Teleop extends Component {
   }
 
   connect(ros) {
+    const protocol = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
     try {
-      ros.connect(`ws://${Config.ROSBRIDGE_SERVER_IP}:${Config.ROSBRIDGE_SERVER_PORT}`);
+        ros.connect(`${protocol}${Config.ROSBRIDGE_SERVER_IP}:${Config.ROSBRIDGE_SERVER_PORT}`);
     } catch (error) {
-      console.error("Connection problem: ", error);
+        console.error("Connection problem: ", error);
     }
-  }
+}
 
   scheduleReconnect = () => {
     setTimeout(() => {
