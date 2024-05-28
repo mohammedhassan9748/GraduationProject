@@ -1,0 +1,25 @@
+.teleop-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.joystick-container {
+    margin-top: 20px;
+}
+
+.status {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.status.connected {
+    color: #28a745;
+}
+
+.status.disconnected {
+    color: #dc3545;
+}

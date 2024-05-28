@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Row, Col } from "react-bootstrap";
 import Config from "../scripts/config";
 import * as Three from "three";
+import "./../styles/RobotState.css"; // Import the CSS file
 
 class RobotState extends Component {
   state = {
@@ -110,31 +111,27 @@ class RobotState extends Component {
     return RPY.z * (180 / Math.PI);
   };
 
-render() {
-  return (
-    <div>
-      <Row>
-        <Col>
-          <h4 className="mt-4">Position</h4>
-          <p className="mt-0">x: {this.state.x}</p>
-          <p className="mt-0">y: {this.state.y}</p>
-          <p className="mt-0">Orientation: {this.state.orientation}</p>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <h4 className="mt-4">Velocities</h4>
-          <p className="mt-0">
-            Linear Velocity: {this.state.linear_velocity}
-          </p>
-          <p className="mt-0">
-            Angular Velocity: {this.state.angular_velocity}
-          </p>
-        </Col>
-      </Row>
-    </div>
-  );
-}
+  render() {
+    return (
+      <div className="robot-state-container">
+        <Row>
+          <Col>
+            <h4 className="robot-state-header">Position</h4>
+            <p className="robot-state-label">x: <span className="robot-state-value">{this.state.x}</span></p>
+            <p className="robot-state-label">y: <span className="robot-state-value">{this.state.y}</span></p>
+            <p className="robot-state-label">Orientation: <span className="robot-state-value">{this.state.orientation}</span></p>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <h4 className="robot-state-header">Velocities</h4>
+            <p className="robot-state-label">Linear Velocity: <span className="robot-state-value">{this.state.linear_velocity}</span></p>
+            <p className="robot-state-label">Angular Velocity: <span className="robot-state-value">{this.state.angular_velocity}</span></p>
+          </Col>
+        </Row>
+      </div>
+    );
+  }
 }
 
 export default RobotState;

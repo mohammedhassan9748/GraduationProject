@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Joystick } from "react-joystick-component";
 import Config from "../scripts/config";
+import "./../styles/Teleop.css"; // Import the CSS file
 
 class Teleop extends Component {
   state = {
@@ -22,12 +23,12 @@ class Teleop extends Component {
     const ros = new window.ROSLIB.Ros();
 
     ros.on("connection", () => {
-      console.log("connection established in Teleoperation Component!");
+      console.log("Connection established in Teleoperation Component!");
       this.setState({ ros, connected: true });
     });
 
     ros.on("close", () => {
-      console.log("connection is closed!");
+      console.log("Connection is closed!");
       this.setState({ connected: false }, this.scheduleReconnect);
     });
 
@@ -57,13 +58,12 @@ class Teleop extends Component {
 
   handleMove = (event) => {
     if (this.state.ros && this.state.connected) {
-      console.log("handle move");
       const cmdVel = new window.ROSLIB.Topic({
         ros: this.state.ros,
         name: Config.CMD_VEL_TOPIC,
         messageType: "geometry_msgs/Twist",
       });
-  
+
       const twist = new window.ROSLIB.Message({
         linear: {
           x: event.y,
@@ -76,22 +76,21 @@ class Teleop extends Component {
           z: -event.x,
         },
       });
-  
+
       cmdVel.publish(twist);
     } else {
       console.log("ROS connection is not established.");
     }
   };
-  
-  handleStop = (event) => {
+
+  handleStop = () => {
     if (this.state.ros && this.state.connected) {
-      console.log("handle stop");
       const cmdVel = new window.ROSLIB.Topic({
         ros: this.state.ros,
         name: Config.CMD_VEL_TOPIC,
         messageType: "geometry_msgs/Twist",
       });
-  
+
       const twist = new window.ROSLIB.Message({
         linear: {
           x: 0,
@@ -104,23 +103,30 @@ class Teleop extends Component {
           z: 0,
         },
       });
-  
+
       cmdVel.publish(twist);
     } else {
       console.log("ROS connection is not established.");
     }
   };
-  
+
   render() {
+    const { connected } = this.state;
+
     return (
-      <div>
-        <Joystick
-          size={100}
-          baseColor="#EEEEEE"
-          stickColor="#BBBBBB"
-          move={this.handleMove}
-          stop={this.handleStop}
-        />
+      <div className="teleop-container">
+        <div className={`status ${connected ? "connected" : "disconnected"}`}>
+          {connected ? "Connected" : "Disconnected"}
+        </div>
+        <div className="joystick-container">
+          <Joystick
+            size={100}
+            baseColor="#EEEEEE"
+            stickColor="#BBBBBB"
+            move={this.handleMove}
+            stop={this.handleStop}
+          />
+        </div>
       </div>
     );
   }

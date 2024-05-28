@@ -1,0 +1,77 @@
+.battery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 60%;
+    max-width: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease-in-out;
+}
+
+.battery-container:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.battery-grid {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.battery-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.battery-cell:hover {
+    transform: scale(1.05);
+}
+
+.battery-cell img {
+    width: 60px;
+    height: 120px;
+    margin-bottom: 10px;
+}
+
+.battery-cell p {
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.battery-cell span {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.total-voltage {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.total-voltage:hover {
+    transform: scale(1.05);
+}
+
+.total-voltage h4 {
+    margin: 0;
+    font-weight: bold;
+}
+
+.total-voltage span {
+    font-size: 1.5em;
+    color: #333;
+}

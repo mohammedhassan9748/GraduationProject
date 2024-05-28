@@ -1,0 +1,77 @@
+/* Common button styling */
+.control-button {
+    width: 150px; /* Set a reasonable width */
+    height: 50px; /* Set an explicit height */
+    font-size: 16px; /* Set a balanced font size */
+    font-weight: bold; /* Keep the text bold */
+    letter-spacing: 1px; /* Maintain spacing between letters */
+    border-radius: 8px; /* More rounded corners */
+    color: white; /* White text for better contrast */
+    transition: all 0.3s ease-in-out; /* Smooth transition for all changes */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto; /* Center the button horizontally and add margin for spacing */
+    cursor: pointer; /* Change cursor to pointer for better UX */
+}
+
+/* Success button styling */
+.control-button-success {
+    background-color: #28a745; /* Success green color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+}
+
+.control-button-success:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-2px); /* Move up slightly to indicate action */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increase shadow to highlight elevation */
+}
+
+/* Danger button styling */
+.control-button-danger {
+    background-color: #dc3545; /* Danger red color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+}
+
+.control-button-danger:hover {
+    background-color: #c82333; /* Darker red on hover */
+    transform: translateY(-2px); /* Move up slightly to indicate action */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increase shadow to highlight elevation */
+}
+
+/* Info button styling */
+.control-button-info {
+    background-color: #007bff; /* Info blue color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+}
+
+.control-button-info:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Move up slightly to indicate action */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Increase shadow to highlight elevation */
+}
+
+.current-state {
+    font-size: 1.2em;
+    margin-top: 20px;
+    color: #333; /* Set the text color to black for better visibility */
+    font-weight: normal;
+    text-align: center; /* Center the text */
+}
+
+.current-state span {
+    font-weight: bold;
+    color: #007bff;
+}
+
+@media (max-width: 768px) {
+    .control-button {
+        width: 90%; /* Full width on small screens */
+        font-size: 14px; /* Smaller font size for smaller screens */
+        height: auto; /* Let height adjust automatically on small screens */
+    }
+
+    .current-state {
+        font-size: 1em;
+    }
+}

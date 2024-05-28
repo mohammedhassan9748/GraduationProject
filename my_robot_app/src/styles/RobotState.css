@@ -1,0 +1,28 @@
+.robot-state-container {
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.robot-state-header {
+    font-size: 1.5;
+    font-weight: 700;
+    color: #343a40;
+    margin-bottom: 10px;
+}
+
+.robot-state-value {
+    font-size: 1.2;
+    color: #007bff;
+    margin: 0;
+}
+
+.robot-state-label {
+    font-size: 1.2;
+    font-weight: 500;
+    margin: 0;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}

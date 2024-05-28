@@ -1,0 +1,49 @@
+
+.motor-control-button {
+    width: 150px; /* Set a reasonable width */
+    height: 50px; /* Set an explicit height */
+    font-size: 16px; /* Set a balanced font size */
+    font-weight: bold; /* Keep the text bold */
+    letter-spacing: 1px; /* Maintain spacing between letters */
+    border-radius: 8px; /* More rounded corners */
+    background-color: #007bff; /* Use a bright blue, primary color */
+    color: white; /* White text for better contrast */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* More pronounced shadow */
+    transition: all 0.3s ease-in-out; /* Smooth transition for all changes */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px; /* Add some margin for spacing */
+    cursor: pointer; /* Change cursor to pointer for better UX */
+}
+
+.motor-control-button:hover {
+    background-color: #0056b3; /* Darken the button on hover for interaction feedback */
+    transform: translateY(-2px); /* Move up slightly to indicate action */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Increase shadow to highlight elevation */
+}
+
+.current-command {
+    font-size: 1.2em;
+    margin-top: 20px;
+    color: #333; /* Set the text color to black for better visibility */
+    font-weight: normal;
+    text-align: center; /* Center the text */
+}
+
+.current-command span {
+    font-weight: bold;
+    color: #0056b3; /* Use yellow for the command text */
+}
+
+@media (max-width: 768px) {
+    .motor-control-button {
+        width: 90%; /* Full width on small screens */
+        font-size: 14px; /* Smaller font size for smaller screens */
+        height: auto; /* Let height adjust automatically on small screens */
+    }
+
+    .current-command {
+        font-size: 1em;
+    }
+}

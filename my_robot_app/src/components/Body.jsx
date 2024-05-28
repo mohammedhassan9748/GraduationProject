@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Container } from "react-bootstrap";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Mapping from "./Mapping"
+import Control from "./Control"
+import Battery from "./Battery"
 import About from "./About"
 
 class Body extends Component{
@@ -12,8 +13,9 @@ class Body extends Component{
             <Container>
                 <Router>
                     <Routes>
-                        <Route path="/mapping" element={<Mapping/>}></Route>
-                        <Route path="/about" element={<About/>}></Route>
+                        <Route path="/control" element={<Control/>}></Route>
+                        <Route path="/battery" element={<Battery/>}></Route>
+                        <Route path="/about" element={<About/>}></Route>   
                     </Routes>
                 </Router>
             </Container>

@@ -3,7 +3,6 @@ import yossefImage from '../imgs/yossef.png';
 import sondosImage from '../imgs/sondos.png';
 import rawanImage from '../imgs/rawan.png';
 import sarahImage from '../imgs/sarah.png';
-import ammarImage from '../imgs/ammar.png';
 
 const teamMembers = [
     {
@@ -27,15 +26,11 @@ const teamMembers = [
         imageUrl: rawanImage,
     },
     {
-        name: 'Sarah Magdy Abdelfattah',
+        name: 'Sarah Magdy Zedan',
         role: 'Senior | Electrical Energy & Electronics Engineering',
         imageUrl: sarahImage,
     },
-    {
-        name: 'Ammar Yasser Mohamed',
-        role: 'Senior | Mechatronics Student Engineering',
-        imageUrl: ammarImage,
-    },
+    {},
 ];
 
 export default teamMembers;
