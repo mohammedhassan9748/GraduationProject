@@ -29,7 +29,7 @@ class Map extends Component {
 
   initConnection = () => {
     const ros = new window.ROSLIB.Ros({
-      url: `ws://${Config.ROSBRIDGE_SERVER_IP}:${Config.ROSBRIDGE_SERVER_PORT}`
+      url: `${Config.PROTOCOL}${Config.ROSBRIDGE_SERVER_IP}:${Config.ROSBRIDGE_SERVER_PORT}`
     });
 
     ros.on('connection', () => {
@@ -54,11 +54,10 @@ class Map extends Component {
     });
 
     try {
-      const protocol = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
-      ros.connect(`${protocol}${Config.ROSBRIDGE_SERVER_IP}:${Config.ROSBRIDGE_SERVER_PORT}`);
-  } catch (error) {
+      ros.connect(`${Config.PROTOCOL}${Config.ROSBRIDGE_SERVER_IP}:${Config.ROSBRIDGE_SERVER_PORT}`);
+    } catch (error) {
       console.log('Connection problem:', error);
-  }
+    }
   };
 
   createViewer = () => {

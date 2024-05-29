@@ -23,9 +23,8 @@ class Connection extends Component {
     }
 
     connectToRosBridge = () => {
-        const protocol = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
         this.ros = new window.ROSLIB.Ros({
-            url: `${protocol}${Config.ROSBRIDGE_SERVER_IP}:${Config.ROSBRIDGE_SERVER_PORT}`
+            url: `ws://${Config.ROSBRIDGE_SERVER_IP}:${Config.ROSBRIDGE_SERVER_PORT}`
         });
 
         this.ros.on('connection', () => {
@@ -34,12 +33,12 @@ class Connection extends Component {
         });
 
         this.ros.on('error', (error) => {
-            console.error('Error connecting to websocket server: ', error);
+            console.log('Error connecting to websocket server: ', error);
             this.setState({ connected: false });
         });
 
         this.ros.on('close', () => {
-            console.warn('Connection to websocket server closed.');
+            console.log('Connection to websocket server closed.');
             this.setState({ connected: false });
             // Attempt to reconnect after a specified delay
             this.scheduleReconnect();
@@ -63,9 +62,6 @@ class Connection extends Component {
                 >
                     {this.state.connected ? 'Robot Connected' : 'Robot Disconnected'}
                 </Alert>
-                <div className="main-content">
-                    {/* Main content of your application */}
-                </div>
             </div>
         );
     }

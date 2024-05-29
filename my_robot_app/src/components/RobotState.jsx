@@ -12,7 +12,6 @@ class RobotState extends Component {
     orientation: 0,
     linear_velocity: 0,
     angular_velocity: 0,
-    reconnecting: false, // Added state for indicating reconnection attempt
   };
 
   ros = new window.ROSLIB.Ros();
@@ -30,7 +29,7 @@ class RobotState extends Component {
   initConnection = () => {
     this.ros.on("connection", () => {
       console.log("Connection established in RobotState Component!");
-      this.setState({ connected: true, reconnecting: false }, this.getRobotState);
+      this.setState({ connected: true }, this.getRobotState);
     });
   
     this.ros.on("close", () => {
@@ -50,16 +49,19 @@ class RobotState extends Component {
   resetState = () => {
     this.setState({
       connected: false,
-      reconnecting: true, // Set reconnecting to true during reconnection attempt
+      x: 0,
+      y: 0,
+      orientation: 0,
+      linear_velocity: 0,
+      angular_velocity: 0,
     });
   };
 
   connect = () => {
-    const protocol = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
     try {
-        this.ros.connect(`${protocol}${Config.ROSBRIDGE_SERVER_IP}:${Config.ROSBRIDGE_SERVER_PORT}`);
+      this.ros.connect(`${Config.PROTOCOL}${Config.ROSBRIDGE_SERVER_IP}:${Config.ROSBRIDGE_SERVER_PORT}`);
     } catch (error) {
-        console.error("Connection problem: ", error);
+      console.error("Connection problem:", error);
     }
   };
 
@@ -112,9 +114,6 @@ class RobotState extends Component {
   render() {
     return (
       <div className="robot-state-container">
-        {this.state.reconnecting && ( // Display reconnection indicator
-          <p className="reconnecting-indicator">Reconnecting...</p>
-        )}
         <Row>
           <Col>
             <h4 className="robot-state-header">Position</h4>

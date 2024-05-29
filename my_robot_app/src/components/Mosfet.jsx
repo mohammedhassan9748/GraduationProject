@@ -25,7 +25,7 @@ class Mosfet extends Component {
 
     initConnection = () => {
         const ros = new window.ROSLIB.Ros({
-            url: `ws://${Config.ROSBRIDGE_SERVER_IP}:${Config.ROSBRIDGE_SERVER_PORT}`
+            url: `${Config.PROTOCOL}${Config.ROSBRIDGE_SERVER_IP}:${Config.ROSBRIDGE_SERVER_PORT}`
         });
 
         ros.on('connection', () => {
@@ -43,7 +43,7 @@ class Mosfet extends Component {
         });
 
         try {
-            ros.connect(`ws://${Config.ROSBRIDGE_SERVER_IP}:${Config.ROSBRIDGE_SERVER_PORT}`);
+            ros.connect(`${Config.PROTOCOL}${Config.ROSBRIDGE_SERVER_IP}:${Config.ROSBRIDGE_SERVER_PORT}`);
         } catch (error) {
             console.log('Connection problem:', error);
         }
