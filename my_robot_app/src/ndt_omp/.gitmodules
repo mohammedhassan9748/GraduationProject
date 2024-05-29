@@ -1,3 +1,0 @@
-[submodule "my_robot_ws/src/ndt_omp"]
-  path = my_robot_ws/src/ndt_omp
-  url = https://github.com/mohammedhassan9748/ndt_omp.git
