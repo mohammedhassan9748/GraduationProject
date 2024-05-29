@@ -2476,37 +2476,35 @@
          * Connect to the specified WebSocket.
          *
          * @param url - WebSocket URL or RTCDataChannel label for Rosbridge
-         */Ros.prototype.connect = function (url) {
-    var protocol = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
-    var fullUrl = protocol + url;
-
-    if (this.transportLibrary === "socket.io") {
-        this.socket = assign(
-            io(fullUrl, { "force new connection": true }),
-            socketAdapter(this)
-        );
-        this.socket.on("connect", this.socket.onopen);
-        this.socket.on("data", this.socket.onmessage);
-        this.socket.on("close", this.socket.onclose);
-        this.socket.on("error", this.socket.onerror);
-    } else if (
-        this.transportLibrary.constructor.name === "RTCPeerConnection"
-    ) {
-        this.socket = assign(
-            this.transportLibrary.createDataChannel(
-                fullUrl,
+         */
+        Ros.prototype.connect = function (url) {
+          if (this.transportLibrary === "socket.io") {
+            this.socket = assign(
+              io(url, { "force new connection": true }),
+              socketAdapter(this)
+            );
+            this.socket.on("connect", this.socket.onopen);
+            this.socket.on("data", this.socket.onmessage);
+            this.socket.on("close", this.socket.onclose);
+            this.socket.on("error", this.socket.onerror);
+          } else if (
+            this.transportLibrary.constructor.name === "RTCPeerConnection"
+          ) {
+            this.socket = assign(
+              this.transportLibrary.createDataChannel(
+                url,
                 this.transportOptions
-            ),
-            socketAdapter(this)
-        );
-    } else {
-        if (!this.socket || this.socket.readyState === WebSocket.CLOSED) {
-            var sock = new WebSocket(fullUrl);
-            sock.binaryType = "arraybuffer";
-            this.socket = assign(sock, socketAdapter(this));
-        }
-    }
-};
+              ),
+              socketAdapter(this)
+            );
+          } else {
+            if (!this.socket || this.socket.readyState === WebSocket.CLOSED) {
+              var sock = new WebSocket(url);
+              sock.binaryType = "arraybuffer";
+              this.socket = assign(sock, socketAdapter(this));
+            }
+          }
+        };
 
         /**
          * Disconnect from the WebSocket server.

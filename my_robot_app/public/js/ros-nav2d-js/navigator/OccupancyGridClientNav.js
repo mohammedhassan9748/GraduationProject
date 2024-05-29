@@ -61,3 +61,45 @@ NAV2D.OccupancyGridClientNav = function (options) {
     old_state = NAV2D.resizeMap(old_state, viewer, client.currentGrid);
   });
 };
+
+NAV2D.OccupancyGridClientNav2 = function (options) {
+  var that = this;
+  options = options || {};
+  var ros = options.ros;
+  var tfClient = options.tfClient || null;
+  var map_topic = options.topic || "/move_base/global_costmap/costmap";
+  var robot_pose = options.robot_pose || "/robot_pose";
+  var continuous = options.continuous;
+  var serverName = options.serverName || "/move_base";
+  var actionName = options.actionName || "move_base_msgs/MoveBaseAction";
+  var rootObject = options.rootObject || new createjs.Container();
+  var viewer = options.viewer;
+  var withOrientation = options.withOrientation || false;
+  var image = options.image || false;
+  var old_state = null;
+
+  // setup a client to get the map
+  var client = new ROS2D.OccupancyGridClient({
+    ros: ros,
+    rootObject: rootObject,
+    continuous: continuous,
+    topic: map_topic,
+  });
+
+  this.navigator = new NAV2D.Navigator({
+    ros: ros,
+    tfClient: tfClient,
+    serverName: serverName,
+    actionName: actionName,
+    robot_pose: robot_pose,
+    rootObject: rootObject,
+    withOrientation: withOrientation,
+    image: image,
+  });
+
+  client.on("change", function () {
+    // scale the viewer to fit the map
+    console.log("draw map");
+    old_state = NAV2D.resizeMap(old_state, viewer, client.currentGrid);
+  });
+};
