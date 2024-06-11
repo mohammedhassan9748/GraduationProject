@@ -1,5 +1,5 @@
 const Config = {
-    PROTOCOL: 'ws://',
+    PROTOCOL: 'wss://',
     ROSBRIDGE_SERVER_IP: "192.168.8.129",
     ROSBRIDGE_SERVER_PORT: "9090",
     RECONNECTION_TIMER: 3000,

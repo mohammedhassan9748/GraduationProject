@@ -24,7 +24,7 @@ class Connection extends Component {
 
     connectToRosBridge = () => {
         this.ros = new window.ROSLIB.Ros({
-            url: `ws://${Config.ROSBRIDGE_SERVER_IP}:${Config.ROSBRIDGE_SERVER_PORT}`
+            url: `wss://${Config.ROSBRIDGE_SERVER_IP}:${Config.ROSBRIDGE_SERVER_PORT}`
         });
 
         this.ros.on('connection', () => {
