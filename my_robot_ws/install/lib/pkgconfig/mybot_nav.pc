@@ -1,8 +1,0 @@
-prefix=/home/mo/GraduationProject/my_robot_ws/install
-
-Name: mybot_nav
-Description: Description of mybot_nav
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

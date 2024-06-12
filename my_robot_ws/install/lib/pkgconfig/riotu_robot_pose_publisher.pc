@@ -1,8 +1,0 @@
-prefix=/home/mo/GraduationProject/my_robot_ws/install
-
-Name: riotu_robot_pose_publisher
-Description: Description of riotu_robot_pose_publisher
-Version: 0.2.4
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
