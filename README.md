@@ -113,7 +113,3 @@ This project would not have been possible without the incredible support and har
 - **Youssef Aly**
 - **Sondos Mohamed**
 - **Rawan Ahmed**
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
