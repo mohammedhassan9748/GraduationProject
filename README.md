@@ -84,7 +84,7 @@ This innovative project leverages cutting-edge autonomous driving technology to 
    ```
 
 5. **Control the Robot:**
-   Open the web interface at `https://graduation-project-brown.vercel.app` and use the controls to navigate the robot.
+   Open the web interface at [this link](https://graduation-project-brown.vercel.app) and use the controls to navigate the robot.
 
 ## Documentation
 
